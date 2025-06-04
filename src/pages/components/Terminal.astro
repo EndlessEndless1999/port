@@ -1,0 +1,111 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        background: url('/images/anime-club.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'VT323', monospace;
+        color: #00ffcc;
+        text-shadow: 0 0 4px #00ffcc;
+      }
+
+      .terminal {
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid #00ffcc;
+        padding: 1rem;
+        width: 80%;
+        max-width: 800px;
+        margin: 5% auto;
+        box-shadow: 0 0 20px #00ffcc;
+        font-size: 1.2rem;
+        overflow: auto;
+      }
+
+      .terminal span.prompt {
+        color: #ff00ff;
+      }
+
+      .terminal-input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        color: #00ffcc;
+        outline: none;
+        font-family: inherit;
+        font-size: inherit;
+      }
+
+      .crt-effect {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 204, 0.03),
+          rgba(0, 255, 204, 0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="terminal" id="terminal">
+      <div>Welcome to Club Terminal</div>
+      <div>
+        <span class="prompt">&gt; </span><input class="terminal-input" id="input" autofocus />
+      </div>
+    </div>
+
+    <div class="crt-effect"></div>
+
+    <script type="module" is:inline>
+      const input = document.getElementById('input');
+      const terminal = document.getElementById('terminal');
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          const command = input.value.trim();
+          const output = document.createElement('div');
+          output.innerHTML = `<span class="prompt">&gt; </span>${command}`;
+          terminal.insertBefore(output, input.parentElement);
+
+          let response = '';
+          switch(command.toLowerCase()) {
+            case 'about':
+              response = 'Charlie - Backend/Desktop App Dev. Loves music + creative code.';
+              break;
+            case 'projects':
+              response = 'Eco-Well, Hive CLI, WaveTable, Creative Playground, Data Science.';
+              break;
+            case 'contact':
+              response = 'charliemitchellwork@gmail.com';
+              break;
+            case 'clear':
+              terminal.innerHTML = '';
+              terminal.appendChild(input.parentElement);
+              input.value = '';
+              return;
+            default:
+              response = 'Unknown command. Try: about, projects, contact, clear';
+          }
+
+          const resElem = document.createElement('div');
+          resElem.textContent = response;
+          terminal.insertBefore(resElem, input.parentElement);
+
+          input.value = '';
+        }
+      });
+    </script>
+  </body>
+</html>

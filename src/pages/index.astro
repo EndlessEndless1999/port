@@ -1,17 +1,44 @@
 ---
+import Card from "./components/Card.astro"
 
+const projects = [
+  {
+    title: "EcoWell - MSc Project",
+    description:
+      "A simulated ecosystem where AI-driven creatures interact with a procedurally generated world. Combines inverse kinematics, constraint-based animation, and Wave Function Collapse to breathe life into the environment. Built in Godot with custom GLSL shaders, this project explores the synergy between programming, art, and nature.",
+    badges: ["Godot", "GLSL", "Procedural Gen"],
+  },
+  {
+	title: "Hive - Project Management CLI",
+	description: 
+		"A Node.js CLI that allows users to easily access, create and store references to all files related to their creative projects. Built as a tool for myself due to the difficulty of managing ableton file locations.",
+	badges: ["Node.js"]
+  },
+  {
+	title: "Rave Builder",
+	description:
+		"Desktop application built with python and GTK toolkit. A peer to peer application that allows musicians, artists and other storytellers to collaborate on a whiteboard style interface whilst preserving the privacy of their work.",
+	badges: ["python", "gtk", "go"]
+  }
+  // Add more projects here
+];
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura-earthly.css" type="text/css">
+		<!-- <link rel="stylesheet" href="/src/pages/style.css" /> -->
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<style>
+
+		</style>
 	</head>
 	<body>
+		<!-- <Terminal /> -->
 		<div>
 			<a href="/">Home</a>
         	<a href="about">About</a>
@@ -24,50 +51,44 @@
 		
 
         <div id="main">
+			<h2>About Charlie:</h2>
+			<hr>
+			<img src="/images/charlie.jpg" width="150" style="float: right; margin-left: 1rem; margin-bottom: 1rem;">
+			<p>Hi, I'm Charlie, a Python, Go and React Developer with a focus on creative software.</p>
+			<p>I like to create feature rich applications with creatives in mind. I want to bring value to the world by assisting others in their processes.</p>
+			<p>I am openly looking for work as a software developer.</p>
+			<div class="contact-badges">
+				<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge"> 
+				<img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin-white&logoColor=fff" alt="LinkedIn Badge">
+			</div>
+			
+			<!-- other content -->
 
-        	<h2>About Me:</h2>
+
+			<ul>
+				<li>
+					Contact Me :<code>charliemitchellwork@gmail.com</code>
+				</li>
+				<li>
+					Discord :<code>Reef Chark</code>
+				</li>
+			</ul>
+			<div style="clear: both;"></div>
+
+		</div>
+
+
+		<div class="cards">
+			<h3>Projects: </h3>
 
 			<hr>
 
-        	<p>Hi, I'm Charlie, a Backend/Desktop app developer.</p>
-
-			<ul>
-				<li>
-					Contact Me : charliemitchellwork@gmail.com
-				</li>
-				<li>
-					Github : https://github.com/EndlessEndless1999
-				</li>
-				<li>
-					Discord : Reef Chark 
-				</li>
-			</ul>
+			{projects.map(project => (
+			<Card title={project.title} description={project.description} badges={project.badges} />
+			))}
 
 		</div>
 
-		<div id="projects">
-			<h3>
-				Projects:
-			</h3>
-
-			<ul>
-				<li>
-					Eco-Well - Masters Project - Inverse Kinematics + Wave Function Collapse.
-				</li>					
-				<li>
-					Hive - CLI for music organisation.
-				</li>
-				<li>
-					WaveTable - Collaborative app for musicians.
-				</li>
-				<li>
-					Creative Code Playground
-				</li>
-				<li>
-					Data Science Project
-				</li>														
-			</ul>
-		</div>
 
 		<div id="programming">
 			<h3>
@@ -79,6 +100,8 @@
 			<img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="">
 
 		</div>
+
+		<hr>
 
 
 
