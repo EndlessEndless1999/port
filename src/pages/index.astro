@@ -7,21 +7,25 @@ const projects = [
     description:
       "A simulated ecosystem where AI-driven creatures interact with a procedurally generated world. Combines inverse kinematics, constraint-based animation, and Wave Function Collapse to breathe life into the environment. Built in Godot with custom GLSL shaders, this project explores the synergy between programming, art, and nature.",
     badges: ["Godot", "GLSL", "Procedural Gen"],
+	github: "https://github.com/chark-dev/EcoSystem"
   },
   {
 	title: "Hive - Project Management CLI",
 	description: 
 		"A Node.js CLI that allows users to easily access, create and store references to all files related to their creative projects. Built as a tool for myself due to the difficulty of managing ableton file locations.",
-	badges: ["Node.js"]
+	badges: ["Node.js"],
+	github: "https://github.com/chark-dev/hive"
   },
   {
 	title: "Rave Builder",
 	description:
 		"Desktop application built with python and GTK toolkit. A peer to peer application that allows musicians, artists and other storytellers to collaborate on a whiteboard style interface whilst preserving the privacy of their work.",
-	badges: ["python", "gtk", "go"]
+	badges: ["python", "gtk", "go"],
+	github: "https://github.com/chark-dev/rave_builder"
   }
   // Add more projects here
 ];
+
 ---
 
 <html lang="en">
@@ -32,10 +36,7 @@ const projects = [
 		<!-- <link rel="stylesheet" href="/src/pages/style.css" /> -->
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-		<style>
-
-		</style>
+		<title>CM-Dev</title>
 	</head>
 	<body>
 		<!-- <Terminal /> -->
@@ -58,8 +59,15 @@ const projects = [
 			<p>I like to create feature rich applications with creatives in mind. I want to bring value to the world by assisting others in their processes.</p>
 			<p>I am openly looking for work as a software developer.</p>
 			<div class="contact-badges">
-				<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge"> 
-				<img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin-white&logoColor=fff" alt="LinkedIn Badge">
+				<a href="https://github.com/chark-dev?tab=repositories">
+					<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" style="margin-bottom: 0;"> 
+				</a>
+				<a href="https://www.linkedin.com/in/charlie-mitchell-aa294b271/">
+					<img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin-white&logoColor=fff" alt="LinkedIn Badge" style="margin-bottom: 0;">
+				</a>
+
+				
+				
 			</div>
 			
 			<!-- other content -->
@@ -67,10 +75,15 @@ const projects = [
 
 			<ul>
 				<li>
-					Contact Me :<code>charliemitchellwork@gmail.com</code>
+					Email :<code>charliemitchellwork@gmail.com</code>
 				</li>
 				<li>
 					Discord :<code>Reef Chark</code>
+				</li>
+				<li>
+					<a href="">
+						CV/Resume
+					</a>
 				</li>
 			</ul>
 			<div style="clear: both;"></div>
@@ -78,13 +91,13 @@ const projects = [
 		</div>
 
 
-		<div class="cards">
+		<div class="cards" id="#projects">
 			<h3>Projects: </h3>
 
 			<hr>
 
 			{projects.map(project => (
-			<Card title={project.title} description={project.description} badges={project.badges} />
+			<Card title={project.title} description={project.description} badges={project.badges} github={project.github}/>
 			))}
 
 		</div>

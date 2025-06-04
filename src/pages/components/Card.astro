@@ -1,9 +1,18 @@
 ---
-const {title, description, badges} = Astro.props
+const {title, description, badges, github} = Astro.props
 ---
 <div class="card">
   <div class="card-header">
-    <h4>{title}</h4>
+    <a href={github} target="_blank">
+        <h4>{title}</h4>
+    </a>
+        <a href={github} target="_blank" rel="">
+        <img
+          src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+          alt="GitHub Repository"
+          style="margin-bottom: 0;"
+        />
+      </a>
   </div>
   <p>{description}</p>
   <div class="badges">
