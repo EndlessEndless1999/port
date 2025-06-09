@@ -1,24 +1,26 @@
 ---
-const {title, description, badges, github} = Astro.props
+const {title, description, badges, github, link} = Astro.props
+
+import { shields } from "../index.astro"
 ---
 <div class="card">
   <div class="card-header">
-    <a href={github} target="_blank">
+    <a href={link}>
         <h4>{title}</h4>
     </a>
         <a href={github} target="_blank" rel="">
         <img
-          src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+          src={shields.github}
           alt="GitHub Repository"
           style="margin-bottom: 0;"
         />
       </a>
   </div>
   <p>{description}</p>
-  <!-- <div class="badges">
-    {badges.map((badge) => (
-      <span class="badge">{badge}</span>
+  <div class="badges">
+    {badges.map((badge: any) => (
+      <img src={badge} style="margin: 0.5rem;"/>
     ))}
-  </div> -->
+  </div>
   <hr>
 </div>

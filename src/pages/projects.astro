@@ -1,4 +1,5 @@
 ---
+import { promise } from "astro:schema";
 import Card from "./components/Card.astro"
 
 export const shields = {
@@ -85,49 +86,10 @@ const projects = [
 		
 
         <div id="main">
-			<h2>About Charlie:</h2>
+			<h2>Charlie's Projects:</h2>
 			<hr>
-			<img src="/images/charlie.jpg" width="150" style="float: right; margin-left: 1rem; margin-bottom: 1rem;">
-			<p>Hi, I'm Charlie, a Python, Go and React Developer with a focus on creative software.</p>
-			<p>I like to create feature rich applications with creatives in mind. I want to bring value to the world by assisting others in their processes.</p>
-			<p>I am openly looking for work as a software developer.</p>
-			<div class="contact-badges">
-				<a href="https://github.com/chark-dev?tab=repositories">
-					<img src={shields.github} alt="GitHub Badge" style="margin-bottom: 0;"> 
-				</a>
-				<a href="https://www.linkedin.com/in/charlie-mitchell-aa294b271/">
-					<img src={shields.linkedIn} alt="LinkedIn Badge" style="margin-bottom: 0;">
-				</a>
-
-				
-				
-			</div>
-			
-			<!-- other content -->
-
-
-			<ul>
-				<li>
-					Email :<code>charliemitchellwork@gmail.com</code>
-				</li>
-				<li>
-					Discord :<code>Reef Chark</code>
-				</li>
-				<li>
-					<a href="/cv">
-						CV/Resume
-					</a>
-				</li>
-			</ul>
-			<div style="clear: both;"></div>
-
-		</div>
-
-
 		<div class="cards" id="#projects">
-			<h3>Projects: </h3>
 
-			<hr>
 
 			{projects.map(project => (
 			<Card title={project.title} description={project.description} badges={project.badges} github={project.github} shields={shields} link={project.link}/>
