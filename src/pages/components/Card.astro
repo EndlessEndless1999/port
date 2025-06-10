@@ -18,8 +18,8 @@ import { shields } from "../index.astro"
   </div>
   <p>{description}</p>
   <div class="badges">
-    {badges.map((badge: any) => (
-      <img src={badge} style="margin: 0.5rem;"/>
+    {badges && badges.map((badge: string) => (
+      <img src={badge} alt="badge" />
     ))}
   </div>
   <hr>
